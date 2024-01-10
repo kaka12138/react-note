@@ -1,28 +1,29 @@
-import React from 'react'
-import Link from 'next/link'
-import { getAllNotes } from '@/lib/redis';
-import SidebarNoteList from '@/components/SidebarNoteList';
+import Link from "next/link"
+import SidebarNoteList from "@/components/SidebarNoteList"
+import { getAllNotes } from "@/lib/redis"
 
-export default async function Sidebar() {
+export default async function SiderBar() {
   const notes = await getAllNotes()
   return (
     <>
       <section className="col sidebar">
-        <Link href={'/'} className="link--unstyled">
-          <section className="sidebar-header">
-            <img
-              className="logo"
-              src="/logo.svg"
-              width="22px"
-              height="20px"
-              alt=""
-              role="presentation"
+        <section >
+          <Link href={'/'} className="link--unstyled">
+            <section className="sidebar-header">
+              <img
+                className="logo"
+                src="/logo.svg"
+                width="22px"
+                height="20px"
+                alt=""
+                role="presentation"
               />
-            <strong>React Notes</strong>
-          </section>
-        </Link>
+              <strong>React Notes</strong>
+            </section>
+          </Link>
+        </section>
         <section className="sidebar-menu" role="menubar">
-          {/* SideSearchField */}
+          {/* serachArea */}
         </section>
         <nav>
           <SidebarNoteList notes={notes} />
